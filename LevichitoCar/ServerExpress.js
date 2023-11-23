@@ -16,7 +16,7 @@ const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    port: '3307',
+    port: '3306',
     database: 'levishitocardb'
 });
 const corsOptions = {
