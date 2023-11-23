@@ -9,14 +9,14 @@
 </div>
 @endif
 @if (session('EstadoI'))
-    <div class="alert alert-danger">
-        {{session('EstadoI')}}
-    </div>
+<div class="alert alert-danger">
+    {{session('EstadoI')}}
+</div>
 @endif
 @if (session('EstadoA'))
-    <div class="alert alert-warning">
-        {{session('EstadoA')}}
-    </div>
+<div class="alert alert-warning">
+    {{session('EstadoA')}}
+</div>
 @endif
 <div class="content-header">
     <div class="container-fluid">
@@ -38,21 +38,9 @@
 <div class="card">
     <div class="card-body">
         <div class="text-right mb-3">
-            <button class="btn btn-outline-primary" data-toggle="collapse" style="margin-right: 1000px;" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"></button>
-            <button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#modal-lg" data-backdrop="static">&nbsp; Nuevo Producto &nbsp;</button>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-lg" data-backdrop="static">&nbsp; Nuevo Producto &nbsp;</button>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card card-body">
-                        <div class="btn-group">
-                            <button class="btn btn-outline-danger d-inline mr-3" id="Pdf"   style="width:100px;"><i class="fa fa-file-pdf"></i></button>
-                            <button class="btn btn-outline-success d-inline" style="width:100px;"><i class="fa fa-file-excel"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <button class="btn btn-outline-danger" id="Pdf"><i class="fa fa-file-pdf"></i></button>
         <table class="table table-bordered data-table" id="AlmacenTable">
             <thead>
                 <tr>
@@ -74,11 +62,11 @@
 </div>
 
 <!-- modal amigo -->
-<div class="modal fade" id="modal-lg" aria-hidden="true" data-backdrop="static" style="display: none; border:solid blue 2px" >
+<div class="modal fade" id="modal-lg" aria-hidden="true" data-backdrop="static" style="display: none; border:solid blue 2px">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:lightblue;">
-                <h4 class="modal-title">Datos Almacen</h4>
+            <div class="modal-header" style="background-color:#1565C0;">
+                <h4 class="modal-title" style="color:white">Datos Almacen</h4>
             </div>
             <div class="modal-body">
                 <form id="FormAlmcen">
@@ -88,11 +76,11 @@
                             <div class="row" style="margin-left: 40px;">
                                 <div class="col-xs-3" style="margin-left: 20px;" hidden>
                                     <label for="">Codigo</label>
-                                    <input type="text" class="form-control" name="Id" id="Id" placeholder=""> 
+                                    <input type="text" class="form-control" name="Id" id="Id" placeholder="">
                                 </div>
                                 <div class="col-xs-3" style="margin-left: 20px;">
                                     <label for="">Codigo</label>
-                                    <input type="text" class="form-control" name="Codigo" id="Codigo" placeholder="" require >
+                                    <input type="text" class="form-control" name="Codigo" id="Codigo" placeholder="" require>
                                 </div>
                                 <div class="col-xs-4" style="margin-left: 20px;">
                                     <label for="">Producto</label>
@@ -124,7 +112,7 @@
     </div>
 
     <!-- modal de confirmal eliinacion -->
-    
+
 </div>
 @stop
 
@@ -136,41 +124,68 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         var ADDAL = true
         $("#AlmacenTable").DataTable({
-            processing:true, serverSide:true,ajax:{URL:'/Almacen'},
-            columns:[{data:'Codigo' , name:'Codigo'},
-                     {data:'Nombre_Producto' , name:'Nombre_Producto'},
-                     {data:'Precio_Compra' , name:'Precio_Compra'},
-                     {data:'Precio_Venta' , name:'Precio_Venta'},
-                     {data:'Entrada' , name:'Entrada'},
-                     {data:'Salida' , name:'Salida'},
-                     {data:'StockActual' , name:'StockActual'},
-                     {data:'Estado' , name:'Estado'},
-                     {data:'action' , name:'action', orderable:false , searchable:false},],
-            createdRow:function(row , data){
-                var estadoCell = $('td' , row).eq(7);
-                if(data.Estado === 'Activo'){
-                    estadoCell.css('color' , 'green');
-                }else if(data.Estado === 'Inactivo'){
-                    estadoCell.css('color','red');
+            processing: true,
+            serverSide: true,
+            ajax: {
+                URL: '/Almacen'
+            },
+            columns: [{
+                    data: 'Codigo',
+                    name: 'Codigo'
+                },
+                {
+                    data: 'Nombre_Producto',
+                    name: 'Nombre_Producto'
+                },
+                {
+                    data: 'Precio_Compra',
+                    name: 'Precio_Compra'
+                },
+                {
+                    data: 'Precio_Venta',
+                    name: 'Precio_Venta'
+                },
+                {
+                    data: 'Entrada',
+                    name: 'Entrada'
+                },
+                {
+                    data: 'Salida',
+                    name: 'Salida'
+                },
+                {
+                    data: 'StockActual',
+                    name: 'StockActual'
+                },
+                {
+                    data: 'Estado',
+                    name: 'Estado'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ],
+            createdRow: function(row, data) {
+                var estadoCell = $('td', row).eq(7);
+                if (data.Estado === 'Activo') {
+                    estadoCell.css('color', 'green');
+                } else if (data.Estado === 'Inactivo') {
+                    estadoCell.css('color', 'red');
                 }
             }
         });
-        $(document).on('click' , "#btn-save" , function(){
+        $(document).on('click', "#btn-save", function() {
             var Formulario = $("#FormAlmcen").serialize();
-            if(ADDAL){
-                $.post("/Almacen/Store" , Formulario , function(result){
+            if (ADDAL) {
+                $.post("/Almacen/Store", Formulario, function(result) {
                     window.location.href = '/Almacen';
-                }).done(function(result){const Toast = Swal.mixin({ toast: true,position: 'top-end',showConfirmButton: false,timer: 1000,timerProgressBar: true,
-                        didOpen: (toast) => {toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)}});Toast.fire({icon: 'success',title: 'Dato guardado' });
-                    setTimeout(function() {window.location.href = "/Vehiculo";}, 1001);});
-            }else{
-               var Id = $("#Id").val();
-               $.ajax({url:'/Almacen/update/' + Id , data:Formulario , method:'PUT',
-                success:function(result){
+                }).done(function(result) {
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
@@ -187,53 +202,98 @@
                         title: 'Dato guardado'
                     });
                     setTimeout(function() {
-                        window.location.href = "/Almacen";
+                        window.location.href = "/Vehiculo";
                     }, 1001);
-                },error:function(){
-                    alert('error en el sistema');
-                }
-               });
+                });
+            } else {
+                var Id = $("#Id").val();
+                $.ajax({
+                    url: '/Almacen/update/' + Id,
+                    data: Formulario,
+                    method: 'PUT',
+                    success: function(result) {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 1000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        });
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Dato guardado'
+                        });
+                        setTimeout(function() {
+                            window.location.href = "/Almacen";
+                        }, 1001);
+                    },
+                    error: function() {
+                        alert('error en el sistema');
+                    }
+                });
             }
         });
-   
-        $(document).on('click' , '#btnedit',function(){
+
+        $(document).on('click', '#btnedit', function() {
             var id = $(this).attr("data-id");
-            $.getJSON('/Almacen/edit/' + id , function(data){
-                if(data.data){
+            $.getJSON('/Almacen/edit/' + id, function(data) {
+                if (data.data) {
                     $("#Id").val(data.data.Id_Almacen);
                     $("#Codigo").val(data.data.Codigo);
                     $("#Productos").val(data.data.Nombre_Producto);
                     $("#PrecioCompras").val(data.data.Precio_Compra);
                     $("#PrecioVentas").val(data.data.Precio_Venta)
                     $("#Entradas").val(data.data.Entrada);
-                }else if(data.error){
+                } else if (data.error) {
                     alert("dato no encontrado" + data.error);
                 }
                 ADDAL = false;
             });
         });
-        $(document).ready(function(){
-            $.getJSON('/Almacen/codigo', function(data){
-                var num  =0;
-                var num2 =0
-                $("#Codigo").val( num2+""+num+""+data.Codigo);
+        $(document).ready(function() {
+            $.getJSON('/Almacen/codigo', function(data) {
+                var num = 0;
+                var num2 = 0
+                $("#Codigo").val(num2 + "" + num + "" + data.Codigo);
             });
         });
-        $(document).on('click',"#Pdf", function(){
+        $(document).on('click', "#Pdf", function() {
             window.location.href = '/Almacen/pdf';
         });
-        $(document).on('click' , "#btndesactivar" , function(){
+        $(document).on('click', "#btndesactivar", function() {
             var id = $(this).attr("data-id");
-            $.ajax({ url:'/Almacen/Activar/'+id ,data:{ _token: '{{ csrf_token() }}' }, method:'PUT' , success:function(result){ if(result.result){
-                window.location.href = '/Almacen';
-            }}});
+            $.ajax({
+                url: '/Almacen/Activar/' + id,
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                method: 'PUT',
+                success: function(result) {
+                    if (result.result) {
+                        window.location.href = '/Almacen';
+                    }
+                }
+            });
         });
-        $(document).on('click' , "#btnactivar" , function(){
+        $(document).on('click', "#btnactivar", function() {
             var id = $(this).attr("data-id");
-            $.ajax({ url:'/Almacen/Desactivar/'+id ,data:{ _token: '{{ csrf_token() }}' }, method:'PUT' , success:function(result){ if(result.result){
-                window.location.href = '/Almacen';
-            }}});
+            $.ajax({
+                url: '/Almacen/Desactivar/' + id,
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                method: 'PUT',
+                success: function(result) {
+                    if (result.result) {
+                        window.location.href = '/Almacen';
+                    }
+                }
+            });
         });
-   });  
+    });
 </script>
 @stop

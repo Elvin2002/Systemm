@@ -1,5 +1,6 @@
 import _ from 'lodash';
 window._ = _;
+//imports de echo para larave.
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -11,6 +12,7 @@ import axios from 'axios';
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -33,3 +35,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+import Echo from 'laravel-echo';
+window.io = require('socket.io-client');
+window.Echo = new Echo({
+    Broadcaster: 'socket.io',
+    host:window.location.hostname + '6001',
+});

@@ -28,7 +28,7 @@
 <div class="card">
     <div class="card-body">
         <div class="text-right mb-3">
-            <button type="button" class="btn btn-outline-danger" style="margin-right: 1000px;"><i class="fa fa-file-pdf"></i></button>
+            <button type="button" class="btn btn-outline-danger" id="Pdf" style="margin-right: 1000px;"><i class="fa fa-file-pdf"></i></button>
         </div>
         <table class="table table-bordered data-table" id="PedidosTable">
             <thead>
@@ -68,7 +68,13 @@
                       {data: 'StockActual',name: 'StockActual'},
                       {data: 'Mensaje',name: 'Mensaje'}
                     ]});
-    
+    }); 
+    $(document).ready(function(){
+        $("#Pdf").on('click', function(){
+            $.getJSON("/Pedidos/Pdf" , function(){
+                alert("entro");
+            });
+        });
     });
 </script>
 @stop

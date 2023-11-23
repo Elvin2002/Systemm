@@ -47,13 +47,6 @@ class AlmacenControllers extends Controller
     public function Store(Request $request)
     {
         try {
-            /* $ValidateData = $request->validate([
-                'Codigo' =>'required'| 'uniqued',
-                'Productos'=>'required',
-                'PrecioCompras' => 'required',
-                'PrecioVentas' =>'required',
-                'Entradas' =>'required'
-            ]);*/
             
             $Data = new AlmacenAlmacenControllers();
             

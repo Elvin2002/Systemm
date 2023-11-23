@@ -55,9 +55,9 @@
 
         <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" style="margin-top:-10px;" id="modalaa" role="document">
-                <div class="modal-content">
-                    <form id="formAgregarProducto"> <br>
-                        <h3 class="text-center">Nuevo Producto</h3>
+                <div class="modal-content" style=" background-color:#bdc3c7">
+                    <form id="formAgregarProducto">
+                        <h3 class="text-center" style="background-color: #1565C0; color:white;">Nuevo Producto</h3>
                         <div class="modal-body">
                             <input type="text" id="Id" hidden>
                             <input type="number" id="Cantidad" style="width:150px;height:auto;" placeholder="Cantidad">
@@ -79,7 +79,7 @@
                             <div class="total"></div>
                             <div style="width:50px; margin-top:15px; margin-left:269px;">
                                 <input id="SinIgv" type="text" disabled style="margin-top: 9px;" placeholder="sin igv">
-                                <input id="VerIGV" type="text" disabled style="margin-top: 9px;" placeholder="IGV">
+                                <input id="VerIGV" type="text" disabled style="margin-top: 9px;" placeholder="IGV"> 
                                 <input id="OPGravada" type="text" disabled placeholder="Importe TOTAL">
                             </div>
                         </div>

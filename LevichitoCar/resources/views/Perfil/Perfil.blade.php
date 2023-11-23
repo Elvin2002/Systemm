@@ -17,21 +17,12 @@
     <div class="card-header p-0 pt-1">
         <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Perfil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Usuarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Messages</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="true">Settings</a>
+                <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Perfil</a>
             </li>
         </ul>
     </div>
     <div class="tab-content" id="custom-tabs-one-tabContent">
-        <div class="tab-pane fade" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+        <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
 
             <div class="card-body box-profile">
                 <div class="text-center">
@@ -64,61 +55,6 @@
                     <a href="https://www.google.com/maps/place/LEVISHITO+CAR/@-8.0970147,-79.0090709,17z/data=!3m1!4b1!4m6!3m5!1s0x91ad17038625d611:0x1bd8b91e96d2355e!8m2!3d-8.09702!4d-79.006496!16s%2Fg%2F11ny4pz0_5?authuser=0&entry=ttu">Ver</a>
                 </div>
             </div>
-        </div>
-        <!-- Registrar USUARIOS -->
-        <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-            <div class="card">
-                <div class="card-body register-card-body">
-                    <p class="login-box-msg">Register a new membership</p>
-                    <form action="../../index.html" method="post">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Full name">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Retype password">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Register</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-
-        </div>
-        <div class="tab-pane fade active show" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
-            Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
         </div>
     </div>
 </div>
@@ -184,22 +120,11 @@
 
 <script>
     $(document).ready(function() {
-        /*$("#file").change(function() {
-            var input = this;
-            var imagenver = $("#imgagenvista");
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    imagenver.attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        });*/
         $data = [];
         $("#btn-save").on('click', function() {
-            var img = $('#file').val(); 
+            var img = $('#file').val();
             var Ruc = $('#Ruc').val();
-            var Telefono= $('#Telefono').val();
+            var Telefono = $('#Telefono').val();
             var Direccion = $('#Direccion').val();
             $.ajax({
                 url: "/Peril/Store",
@@ -209,7 +134,7 @@
                     formData: formData
                 },
                 success: function(response) {
-                   // window.location.href = "/Perfil";
+                    // window.location.href = "/Perfil";
                 },
                 error: function(error) {
                     console.log(error);

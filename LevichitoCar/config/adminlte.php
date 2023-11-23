@@ -314,9 +314,9 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => '/',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Inicio',
+            'url'  => '/home',
+            'icon' => 'fas fa-fw fa-home',
         ],
         [
             'text' => 'Config',

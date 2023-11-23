@@ -118,8 +118,8 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document" id="mddasl">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <div class="modal-header" style="background-color: #1565C0;">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: white;">Proveedores</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -160,11 +160,8 @@
                             <div class="modal fade" id="modal-sm" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Small Modal</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
+                                        <div class="modal-header btn btn-success" >
+                                            <h4 class="modal-title">Empresa</h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
@@ -190,6 +187,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer justify-content-between">
+                                            <button type="button" class="btn btn-danger" id="canselar"> canselar</button>
                                             <button type="button" id="AddModalSave" class="btn btn-primary">Agregar</button>
                                         </div>
                                     </div>
@@ -241,6 +239,9 @@
         $("#AddModalSave").on('click', function() {
             $("#modal-sm").modal('hide');
         });
+        $("#canselar").on('click' , function(){
+            $("#modal-sm").modal('hide');
+        });
 
         // Manejar el evento clic para el botón "Guardar"
         $("#BTN-Save").on('click', function() {
@@ -287,5 +288,6 @@
             });
         });
     });
+
 </script>
 @stop

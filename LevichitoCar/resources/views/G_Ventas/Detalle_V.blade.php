@@ -52,11 +52,11 @@
 </div>
 
 <!-- MODAL AMIGO -->
-<div class="modal fade" id="modal-lg" style="display: none;" data-backdrop="static" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="modal-lg" style="display: none;" data-backdrop="static" aria-hidden="true" style="border:5px solid blue;">
+    <div class="modal-dialog modal-lg" style="border: 1px solid blue;">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">DETALLE VEHICULO</h4>
+            <div class="modal-header" style="background-color: #1565C0;">
+                <h4 class="modal-title" style="color: white;">DETALLE VEHICULO</h4>
             </div>
             <div class="modal-body">
                 <div class="container">
@@ -151,19 +151,19 @@
         </div>
     </div>
 </div>
+
+
 <div class="modal fade" id="modal" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Datos Informativos </h5>
+            <div class="modal-header" style="background-color: #1565C0;">
+                <h5 class="modal-title" style="color: white;">Datos Informativos </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                x|
-
-
+                
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -251,7 +251,9 @@
         });
         $(document).on("click", "#btn-info", function() {
             var data = $(this).attr("data-id");
-            alert(data);
+            $.getJSON("/Detalle_Vehiculo/Ver/" + data , function(data){
+                console.log(data);
+            });
         });
 
         $(document).on('click', "#btnSave", function() {

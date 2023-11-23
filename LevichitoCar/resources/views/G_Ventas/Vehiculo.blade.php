@@ -50,8 +50,8 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" style="margin-top:-30px;" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo Vehiculo</h5>
+            <div class="modal-header" style="background-color: #1565C0;">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: white;" >Nuevo Vehiculo</h5>
             </div>
             <div class="modal-body" style="margin-top:-30px;">
                 <!-- -->

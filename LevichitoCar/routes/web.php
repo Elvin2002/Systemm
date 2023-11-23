@@ -10,17 +10,19 @@ use App\Http\Controllers\G_Ventas\Detalle_vehiculoControllers;
 use App\Http\Controllers\G_Ventas\Productos;
 use App\Http\Controllers\G_Ventas\Reportes;
 use App\Http\Controllers\G_Ventas\VehiculoControllers;
+use App\Http\Controllers\Home\Dashboard;
 use App\Http\Controllers\Perfil\PerfilControllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('home');
+Route::middleware('auth')->group( function(){
+    Route::get('/home',[ Dashboard::class , 'index'])->name('home');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,6 +45,7 @@ Route::middleware("auth")->group(function () {
     Route::post("/Detalle_Vehiculo/Store", [Detalle_vehiculoControllers::class, "Store"]);
     Route::get("/Detalle_Vehiculo/edit/{id}", [Detalle_vehiculoControllers::class, 'Edit']); //falta amigo
     Route::put("/Detalle_Vehiculo/update/{id}", [Detalle_vehiculoControllers::class, 'Update']);
+    Route::get("Detalle_Vehiculo/Ver/{id}", [Detalle_vehiculoControllers::class, 'verInfo']);
 });
 Route::middleware("auth")->group(function () {
     Route::get("/Almacen", [AlmacenControllers::class, 'Index']);
@@ -98,9 +101,7 @@ Route::middleware("auth")->group(function () {
 //falta
 Route::middleware("auth")->group(function () {
     Route::get("/Pedidos", [PedidosControllers::class, 'Index'])->name('Pedidos.Index');
-    Route::post("/Pedidos/Store", [PedidosControllers::class, 'Store']);
-    Route::get("/Pedidos/edit/{id}", [PedidosControllers::class, 'Edit']);
-    Route::put("/Pedidos/update/{id}", [PedidosControllers::class, 'Update']); // falta el combo
+    Route::get("/Pedidos/Pdf",[PedidosControllers::class , 'downloadpdf']);
 });
 //falta
 Route::middleware("auth")->group(function () {

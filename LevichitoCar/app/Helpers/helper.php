@@ -271,15 +271,24 @@ function ListarEmpresa()
                         P.Telefono
                             FROM prove_empresa as PE INNER JOIN proveedor AS P ON PE.Id_Empresa = P.Id_Empresa";
     $Respuesta = DB::select($Consulta);
-    
+
     return $Respuesta;
 }
-function EditEmpresa($id){
+function EditEmpresa($id)
+{
     $Consulta = "
                 Select pe.Id_Empresa, pe.Ruc, pe.RazonSocial , pe.Direccion,pe.Estado,
                 p.Nombres , p.Apellido , p.Email, p.Telefono 
                 from prove_empresa as pe inner join proveedor as p on pe.Id_Empresa = p.Id_Empresa
                 where pe.Id_Empresa = ?";
+    $Respuesta = DB::select($Consulta, [$id]);
+    return $Respuesta;
+}
+function VerDetalleVehiculo($id)
+{
+    $Consulta = "select dv.Nom_Aceite, dv.Filtro_Aire, dv.Nom_Filtro_Petroleo, v.Tipo_Aceite,v.Marca, v.Placa, C.Nombres, C.DniRuc  from detalle_vehiculo as dv 
+    INNER JOIN vehiculo as v on dv.Id_Vehiculo = v.Id_Vehiculo 
+    INNER JOIN clientes as C on v.Id_Cliente = C.Id_Cliente where dv.Id_DetalleVehiculo = ?";
     $Respuesta = DB::select($Consulta,[$id]);
     return $Respuesta;
 }

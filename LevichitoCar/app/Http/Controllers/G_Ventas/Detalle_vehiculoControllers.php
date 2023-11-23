@@ -75,7 +75,6 @@ class Detalle_vehiculoControllers extends Controller
             return response()->json(["data" => $data]);
         } else {
             $Mensaje = "Error dato no encontrado";
-            Log::info($Mensaje);
             return response()->json(["error" => $Mensaje]);
         }
     }
@@ -97,5 +96,13 @@ class Detalle_vehiculoControllers extends Controller
         $Nuevo_Detalle_Vehiculo->save();
         session()->flash('mensaje', '¡Los datos se han guardado con éxito!');
         return response()->json(['mensaje' => '¡Los datos se han guardado con éxito!']);
+    }
+    public function verInfo($id){
+        $data = VerDetalleVehiculo($id);
+        if($data){
+            return response()->json(["data" =>$data]);
+        }else{
+            return response()->json(["error" =>"dato no encontrado"]);
+        }
     }
 }
